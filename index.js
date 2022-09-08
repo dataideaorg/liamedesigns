@@ -35,7 +35,7 @@ const handleSubmit = async (e) => {
     headers: { "content-Type": "application/json" },
   });
 
-  console.log(res.status);
+  location.reload();
 };
 
 form.addEventListener("submit", handleSubmit);
