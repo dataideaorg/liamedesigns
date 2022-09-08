@@ -29,7 +29,7 @@ const handleSubmit = async (e) => {
 
   console.log(data);
 
-  const res = await fetch("http://localhost:5000/contact", {
+  const res = await fetch("https://liamedesigns.herokuapp.com/contact", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "content-Type": "application/json" },
