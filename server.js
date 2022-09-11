@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 // const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
@@ -17,25 +18,25 @@ app.post("/contact", (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "datasideaofficial@gmail.com",
-      pass: "ensqbpeydtwpitxd",
+      user: process.env.user,
+      pass: process.env.pass,
     },
   });
 
   const mailOptions = {
-    to: "jumashafara0@gmail.com",
+    to: process.env.to,
     subject: `New contact from ${req.body.name} via Liame Designs website`,
     text: `${req.body.text} \n Sender email: ${req.body.from}`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log(error);
+      res.status(502).send("Action failed");
     } else {
-      res.status(502);
+      res.status(200);
       console.log(mailOptions);
     }
   });
 });
 
-app.listen(port, () => console.log("Server started"));
+app.listen(port);
