@@ -18,13 +18,13 @@ app.post("/contact", (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.user,
-      pass: process.env.pass,
+      user: "datasideaofficial@gmail.com",
+      pass: "ensqbpeydtwpitxd",
     },
   });
 
   const mailOptions = {
-    to: process.env.to,
+    to: "jumashafara0@gmail.com",
     subject: `New contact from ${req.body.name} via Liame Designs website`,
     text: `${req.body.text} \n Sender email: ${req.body.from}`,
   };
