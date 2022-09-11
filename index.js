@@ -27,13 +27,13 @@ const handleSubmit = async (e) => {
     name: form.name.value,
   };
 
-  console.log(data);
-
-  const res = await fetch("https://liamedesigns.herokuapp.com/contact", {
+  const res_data = await fetch("https://liamedesigns.herokuapp.com/contact", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "content-Type": "application/json" },
   });
+
+  const res = res_data.json();
 
   location.reload();
 };
