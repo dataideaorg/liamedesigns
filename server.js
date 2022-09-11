@@ -33,7 +33,7 @@ app.post("/contact", (req, res) => {
     if (error) {
       res.status(502).send("Action failed");
     } else {
-      res.status(200);
+      res.json({ status: 200, message: "ok" });
       console.log(mailOptions);
     }
   });
